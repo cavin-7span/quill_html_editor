@@ -191,6 +191,7 @@ class QuillHtmlEditorState extends State<QuillHtmlEditor> {
   @override
   void dispose() {
     _webviewController.dispose();
+
     super.dispose();
   }
 
@@ -332,6 +333,8 @@ class QuillHtmlEditorState extends State<QuillHtmlEditor> {
                   _hasFocus = map?.toString() == 'true';
                   if (widget.onFocusChanged != null) {
                     widget.onFocusChanged!(_hasFocus);
+                  } else {
+                    widget.onFocusChanged!(!_hasFocus);
                   }
 
                   /// scrolls to the end of the text area, to keep the focus visible
